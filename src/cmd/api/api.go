@@ -7,6 +7,8 @@ import (
 
 	"github.com/gorilla/mux"
 
+	"ecom/src/services/cart"
+	"ecom/src/services/order"
 	"ecom/src/services/product"
 	"ecom/src/services/user"
 )
@@ -33,8 +35,13 @@ func (s *APIServer) Run() error {
 	userHandler.RegisterRoutes(subrouter)
 	// Product Handler
 	productStore := product.NewStore(s.db)
-	productHandler := product.NewHandler(productStore)
+	productHandler := product.NewHandler(productStore, userStore)
 	productHandler.RegisterRoutes(subrouter)
+	// Order Store
+	orderStore := order.NewStore(s.db)
+	// Cart Handler
+	cartHandler := cart.NewHandler(orderStore, productStore, userStore)
+	cartHandler.RegisterRoutes(subrouter)
 	// Start Server at PORT 9010
 	log.Println("Listening on", s.addr)
 	return http.ListenAndServe(s.addr, router)

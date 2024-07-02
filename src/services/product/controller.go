@@ -13,7 +13,7 @@ import (
 )
 
 func (h *Handler) handleGetProducts(w http.ResponseWriter, r *http.Request) {
-	ps, err := h.store.GetProducts()
+	ps, err := h.productStore.GetProducts()
 	if err != nil {
 		utils.WriteError(w, http.StatusInternalServerError, err)
 		return
@@ -37,7 +37,7 @@ func (h *Handler) handleGetProductByID(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	product, err := h.store.GetProductByID(productID)
+	product, err := h.productStore.GetProductByID(productID)
 	if err != nil {
 		utils.WriteError(w, http.StatusInternalServerError, err)
 	}
@@ -60,7 +60,7 @@ func (h *Handler) handleCreateProduct(w http.ResponseWriter, r *http.Request) {
 		utils.WriteError(w, http.StatusBadRequest, fmt.Errorf("invalid payload: %v", err))
 	}
 
-	err = h.store.CreateProduct(product)
+	err = h.productStore.CreateProduct(product)
 	if err != nil {
 		utils.WriteError(w, http.StatusInternalServerError, err)
 		return

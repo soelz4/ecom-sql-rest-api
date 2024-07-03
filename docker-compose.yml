@@ -1,0 +1,26 @@
+services:
+  ecom-sql-rest-api:
+    container_name: ecom
+    image: soelz/ecom-sql-rest-api:0.1
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    init: true
+    depends_on:
+      - mariadb
+    networks:
+      - backend
+    ports:
+      - 9010:9010
+    restart: unless-stopped
+  mariadb:
+    container_name: mariadb
+    image: mariadb:lts
+    networks:
+      - backend
+    ports:
+      - 3306:3306
+networks:
+  backend:
+    name: backend
+    external: true

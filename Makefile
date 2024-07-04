@@ -18,6 +18,18 @@ lint-fix: ## 📜 Lint & Format, will Try to Fix Errors and Modify Code
 	gofmt -w $(SRC_DIR) \
 	&& golangci-lint run $(SRC_DIR)/...
 
+# Go Unit Test
+test: ## 🧪 Go Unit Test - Tests a Specific Piece of Code from a Program or Package
+	go test -v ./...
+
+# Database Migrations
+migrate-up: ## 🔺 Database Migrations - Create a Required Tables in Database (ecom)
+	go run $(SRC_DIR)/cmd/migrate/main.go up
+
+# Database Migrations
+migrate-down: ## 🔻 Database Migrations - Drop a Tables in Database (ecom)
+	go run $(SRC_DIR)/cmd/migrate/main.go down
+
 # Build Binary File
 build: ## 🔨 Build Binary File
 	go build -o $(BINARY_DIR)/$(BINARY_NAME) $(SRC_DIR)/cmd/main/main.go

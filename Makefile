@@ -51,10 +51,15 @@ clean: ## 🧹 Clean up Project
 IMAGE_REPO := soelz/ecom-sql-rest-api
 IMAGE_TAG := 0.1
 MariaDB_IMAGE := mariadb:lts
+MySQL_IMAGE := mysql:lts
 
 # Pull MariaDB Docker Image from Docker Hub Registry
 mariadb: ## 🦭 Pull MariaDB Docker Image from Docker Hub Registry
 	docker pull $(MariaDB_IMAGE)
+
+# Pull MySQL Docker Image from Docker Hub Registry
+mysql: ## 🐬 Pull MySQL Docker Image from Docker Hub Registry
+	docker pull $(MySQL_IMAGE)
 
 # Create Docker Network
 docker-network: ## 🪡 Create Docker Network

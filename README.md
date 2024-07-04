@@ -34,7 +34,7 @@ compose-down         🧼 Stop and Remove Containers, Networks
 ```
 
 Makefile Variables
-<img src="strongGopher.jpg" align="right" width="420px">
+<img src="strongGopher.jpg" align="right" width="400px">
 
 | Makefile Variable | Default                 |
 | ----------------- | ----------------------- |

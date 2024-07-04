@@ -18,6 +18,11 @@ services:
     image: mariadb:lts
     networks:
       - backend
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=ecom
+      - MYSQL_USER=sz
+      - MYSQL_PASSWORD=1234
     ports:
       - 3306:3306
 networks:

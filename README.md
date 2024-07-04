@@ -1,4 +1,4 @@
-<img src="strongGopher.jpg" width="850px">
+<img src="strongGopher.jpg" width="580px">
 
 # ecom-sql-rest-api
 

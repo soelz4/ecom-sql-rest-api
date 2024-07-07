@@ -26,6 +26,7 @@ run                  >_ Run the Web Server Locally at PORT 9010
 init                 📥 Download Dependencies From go.mod File
 clean                🧹 Clean up Project
 mariadb              🦭 Pull MariaDB Docker Image from Docker Hub Registry
+mysql                🐬 Pull MySQL Docker Image from Docker Hub Registry
 docker-network       🪡 Create Docker Network
 image                📦 Build Docker Container Image from Dockerfile
 push                 📤 Push Container Image to Registry
@@ -44,6 +45,7 @@ Makefile Variables
 | IMAGE_REPO        | soelz/ecom-sql-rest-api |
 | IMAGE_TAG         | 0.1                     |
 | MariaDB_IMAGE     | mariadb:lts             |
+| MySQL_IMAGE       | mysql:lts               |
 
 ## Containers
 
